@@ -11,6 +11,7 @@ namespace wizard_b3
     {
         protected void Application_Start()
         {
+            //test1
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
