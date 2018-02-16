@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app-template/app.component';
 import { StringComponent } from './ctrl-templates/string/string.component';
 import { SwitchboxComponent } from './ctrl-templates/switchbox/switchbox.component';
 
@@ -10,7 +10,7 @@ import { SwitchboxComponent } from './ctrl-templates/switchbox/switchbox.compone
 @NgModule({
   declarations: [
     AppComponent,
-    StringComponent,
+  	StringComponent,
     SwitchboxComponent
   ],
   imports: [
