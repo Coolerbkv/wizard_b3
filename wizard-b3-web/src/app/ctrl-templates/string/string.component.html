@@ -1,3 +1,8 @@
-<p>
-  string works!
-</p>
+<span>id: </span>{{ctrl.controlId}}
+<span>name: </span>{{ctrl.q}}
+<span>val: </span>{{ctrl.value}}
+<span>
+    <label>name:
+      <input [(ngModel)]="ctrl.value" placeholder="value">
+    </label>
+</span>
