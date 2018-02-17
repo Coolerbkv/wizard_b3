@@ -8,11 +8,18 @@ namespace InsWebApp.FormsModel
 {
     public sealed class FormControl
     {
-        public readonly FormControlTypes Type;
+        public FormControlType Type;
+        public string Id;
+        public string Question;
+        public bool Required;
 
-        internal FormControl(FormControlTypes type)
+
+        internal FormControl(FormControlType type, string id, string q, bool req)
         {
             Type = type;
+            Id = id;
+            Question = q;
+            Required = req;
         }
     }
 }

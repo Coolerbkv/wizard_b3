@@ -4,10 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wizard_b3", "wizard_b3\wizard_b3.csproj", "{36C599B4-9060-4D06-B4BE-3514CDCEF7B6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{237AE86E-B83D-45C6-B6CC-FC0C2709086C} = {237AE86E-B83D-45C6-B6CC-FC0C2709086C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsWebApp", "InsWebApp\InsWebApp.csproj", "{DCE979F0-DFE5-41AB-8F8B-A2C783EAB42F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Support", "..\Trunk\Support\Support.csproj", "{E6F05484-1B14-4152-A961-3B63CA7C3818}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nationwide_Base", "Nationwide_Base\Nationwide_Base.csproj", "{237AE86E-B83D-45C6-B6CC-FC0C2709086C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,14 +36,14 @@ Global
 		{DCE979F0-DFE5-41AB-8F8B-A2C783EAB42F}.Release AES|Any CPU.Build.0 = Release|Any CPU
 		{DCE979F0-DFE5-41AB-8F8B-A2C783EAB42F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCE979F0-DFE5-41AB-8F8B-A2C783EAB42F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E6F05484-1B14-4152-A961-3B63CA7C3818}.Debug AES|Any CPU.ActiveCfg = Debug AES|Any CPU
-		{E6F05484-1B14-4152-A961-3B63CA7C3818}.Debug AES|Any CPU.Build.0 = Debug AES|Any CPU
-		{E6F05484-1B14-4152-A961-3B63CA7C3818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6F05484-1B14-4152-A961-3B63CA7C3818}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6F05484-1B14-4152-A961-3B63CA7C3818}.Release AES|Any CPU.ActiveCfg = Release AES|Any CPU
-		{E6F05484-1B14-4152-A961-3B63CA7C3818}.Release AES|Any CPU.Build.0 = Release AES|Any CPU
-		{E6F05484-1B14-4152-A961-3B63CA7C3818}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6F05484-1B14-4152-A961-3B63CA7C3818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237AE86E-B83D-45C6-B6CC-FC0C2709086C}.Debug AES|Any CPU.ActiveCfg = Debug|Any CPU
+		{237AE86E-B83D-45C6-B6CC-FC0C2709086C}.Debug AES|Any CPU.Build.0 = Debug|Any CPU
+		{237AE86E-B83D-45C6-B6CC-FC0C2709086C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237AE86E-B83D-45C6-B6CC-FC0C2709086C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237AE86E-B83D-45C6-B6CC-FC0C2709086C}.Release AES|Any CPU.ActiveCfg = Release|Any CPU
+		{237AE86E-B83D-45C6-B6CC-FC0C2709086C}.Release AES|Any CPU.Build.0 = Release|Any CPU
+		{237AE86E-B83D-45C6-B6CC-FC0C2709086C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237AE86E-B83D-45C6-B6CC-FC0C2709086C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

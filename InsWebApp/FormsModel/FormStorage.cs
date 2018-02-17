@@ -37,7 +37,7 @@ namespace InsWebApp.FormsModel
             }
         }
 
-        public FormSet GetFormSet(string activeProductClass, string productId, string state)
+        public FormSet GetFormSet(string productId, string state)
         {
             FormSet formSet;
             lock (_bundles_lock_sync)
@@ -47,7 +47,7 @@ namespace InsWebApp.FormsModel
                 if (formSet == null)
                 {
                     // try to load
-                    formSet = CreateFormSet(activeProductClass, productId, state);
+                    formSet = CreateFormSet(productId, state);
                     FormSets.Add(fullFormSetId, formSet);
                 }
             }
@@ -55,9 +55,9 @@ namespace InsWebApp.FormsModel
         }
 
 
-        private FormSet CreateFormSet(string activeProductClass, string productId, string state)
+        private FormSet CreateFormSet(string productId, string state)
         {
-            return FormSetCreator.Instance.CreateFormSet(activeProductClass, productId, state);
+            return FormSetCreator.Instance.CreateFormSet(productId, state);
         }
     }
 }
