@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace InsWebApp.FormsModel
 {
-    public sealed class FormSet
+    public sealed class FormSet : FormSetTemplate
     {
-        private Dictionary<string, Form> _forms;
-        public Dictionary<string, Form> Forms
+        public readonly string State;
+        internal readonly FormSetTemplate Template;
+
+        public FormSet(string state, FormSetTemplate template)
         {
-            get { return _forms ?? (_forms = new Dictionary<string, Form>()); }
+            State = state;
+            Template = template;
         }
 
-        internal FormSet()
+        internal FormSet(string state)
         {
-            
-        }
-
-        internal void AddForm(string formId, Form form)
-        {
-            _forms.Add(formId, form);
+            State = state;
         }
     }
 }

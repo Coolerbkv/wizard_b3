@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InsWebApp.ProductFormsModel;
 using XStar.Support;
 
 namespace InsWebApp.FormsModel
@@ -17,13 +18,12 @@ namespace InsWebApp.FormsModel
             }
         }
 
-        public FormSet CreateFormSet(string activeProductClass, string productId, string state)
+        public FormSet CreateFormSet(string productId, string state)
         {
-            var fs = new FormSet();
-            var insForm = new Form();
-            //insForm.AddControl(new Form(), );
-            fs.AddForm("insured", new Form());
-            fs.AddForm("health_history_part1", new Form());
+            var productModel = ProductFormsGetter.Image.GetAllForms(productId);
+            var formSet = productModel.GetFormSet(state);
+            var fs = new FormSet(state);
+            fs.AddForms(formSet.Template.Forms);
             return fs;
         }
     }
