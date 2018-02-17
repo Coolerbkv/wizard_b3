@@ -1,7 +1,6 @@
 
-*.dll
-InsWebApp/obj/Debug/InsWebApp.csproj.FileListAbsolute.txt
-InsWebApp/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+InsWebApp/obj/
+InsWebApp/bin/
 *.xml
 *.pdb
 *.suo
@@ -11,3 +10,6 @@ InsWebApp/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.
 *.suo
 *.suo
 *.suo
+Nationwide_Base/obj/
+Nationwide_Base/bin/
+packages
