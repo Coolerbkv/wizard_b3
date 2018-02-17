@@ -8,20 +8,31 @@ namespace InsWebApp.FormsModel
 {
     public sealed class Form
     {
-        private Dictionary<string, FormControl> _controls;
+        public readonly string Id;
+        public readonly string Name;
+        public readonly string Step;
+
+        private Dictionary<string, FormControl> _controls = new Dictionary<string, FormControl>();
+
         public Dictionary<string, FormControl> Controls
         {
-            get { return _controls ?? (_controls = new Dictionary<string, FormControl>()); }
+            get { return _controls; }
         }
 
-        internal Form()
+        public Form(string id, string name) : this(id, name, string.Empty)
         {
-            
         }
 
-        internal void AddControl(string formId, FormControl ctrl)
+        public Form(string id, string name, string step)
         {
-            _controls.Add(formId, ctrl);
+            Id = id;
+            Name = name;
+            Step = step;
+        }
+
+        public void AddControl(FormControlType type, string id, string q = "", bool req = false)
+        {
+            _controls.Add(id, new FormControl(type, id, q, req));
         }
     }
 }
