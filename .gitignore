@@ -13,3 +13,4 @@ InsWebApp/bin/
 Nationwide_Base/obj/
 Nationwide_Base/bin/
 packages
+*.dll
