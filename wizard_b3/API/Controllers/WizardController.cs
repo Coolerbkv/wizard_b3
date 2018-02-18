@@ -4,14 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using InsWebApp.FormsModel;
 using wizard_b3.Models;
 
 namespace wizard_b3.API.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class WizardController : ApiController
     {
-        [HttpGet]
         [Route("~/api/wizard/getAllForms")]
         public List<FormModel> GetAllForms()
         {

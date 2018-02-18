@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ctrl-string',
+  selector: 'ctrl-String',
   templateUrl: './string.component.html',
   styleUrls: ['./string.component.css']
 })

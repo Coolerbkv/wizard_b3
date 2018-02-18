@@ -9,13 +9,13 @@ import { Form } from '../app-data/form';
 import { Ctrl } from '../app-data/ctrl';
 
 const httpOptions = {
-  	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  	headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
 
 @Injectable()
 
 export class WizardService {
-	private formsUrl = 'api/wizard/getAllForms';
+	private formsUrl = 'http://localhost/wizard_b3/api/wizard/getAllForms';
 
   constructor(private http: HttpClient) { }
 	
