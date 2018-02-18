@@ -8,12 +8,14 @@ import { StringComponent } from './ctrl-templates/string/string.component';
 import { SwitchboxComponent } from './ctrl-templates/switchbox/switchbox.component';
 
 import { WizardService } from './app-services/wizard.service';
+import { ControlFactoryDirective } from './app-directive/control-factory.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
   	StringComponent,
-    SwitchboxComponent
+    SwitchboxComponent,
+    ControlFactoryDirective
   ],
   imports: [
   	BrowserModule,

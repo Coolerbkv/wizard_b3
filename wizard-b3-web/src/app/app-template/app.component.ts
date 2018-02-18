@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 
 import { Form } from '../app-data/form';
 import { Ctrl } from '../app-data/ctrl';
+import { NgIf } from '@angular/common';
 
 import { WizardService } from '../app-services/wizard.service';
+import { StringComponent } from '../ctrl-templates/string/string';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ import { WizardService } from '../app-services/wizard.service';
 
 export class AppComponent {
 	forms: Form[];
-
+	
 	constructor(private wizardService: WizardService) { }
 
   ngOnInit() {
@@ -22,9 +24,7 @@ export class AppComponent {
 
   getForms(): void {
     this.wizardService.getForms()
-        .subscribe(forms => this.forms = forms);
-  };
-
-  title = 'eSign 3.0';
-  formsLength = this.forms.length;
+        .subscribe(forms => this.forms = [forms[0]])   
+	}
+	title = 'eSign 3.0';
 }

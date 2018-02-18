@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
-namespace wizard_b3
+namespace wizard_b3.App_Start
 {
     public static class WebApiConfig
     {
@@ -12,6 +9,7 @@ namespace wizard_b3
             // Web API configuration and services
 
             // Web API routes
+            config.EnableCors();
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
