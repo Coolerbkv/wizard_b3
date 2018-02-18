@@ -5,8 +5,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
+import { Form } from '../app-data/form';
 import { Ctrl } from '../app-data/ctrl';
-import { CTRLS } from '../app-data/ctrls';
 
 const httpOptions = {
   	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,8 +19,8 @@ export class WizardService {
 
   constructor(private http: HttpClient) { }
 	
-  getForms(): Observable<Ctrl[]> {
-    return this.http.get<Ctrl[]>(this.formsUrl)
+  getForms(): Observable<Form[]> {
+    return this.http.get<Form[]>(this.formsUrl)
     					 .pipe(tap(forms=> this.log('fetched forms')), catchError(this.handleError('getForms', []))
     );
   }
@@ -31,9 +31,15 @@ export class WizardService {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
  
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
  
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
+  }
+
+  private log(message: string) {
+    //this.messageService.add('HeroService: ' + message);
   }
 }

@@ -11,7 +11,7 @@ namespace wizard_b3.API.Controllers
     public class WizardController : ApiController
     {
         [HttpGet]
-        [Route("~/api/Wizard/getAllForms")]
+        [Route("~/api/wizard/getAllForms")]
         public object GetAllForms()
         {
             return FormStorage.Instance.GetFormSet("", "AK");

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Form } from '../app-data/form';
 import { Ctrl } from '../app-data/ctrl';
-import { CTRLS } from '../app-data/ctrls';
 
 import { WizardService } from '../app-services/wizard.service';
 
@@ -12,7 +12,7 @@ import { WizardService } from '../app-services/wizard.service';
 })
 
 export class AppComponent {
-	ctrls: Ctrl[];
+	forms: Form[];
 
 	constructor(private wizardService: WizardService) { }
 
@@ -22,8 +22,9 @@ export class AppComponent {
 
   getForms(): void {
     this.wizardService.getForms()
-        .subscribe(ctrls => this.ctrls = ctrls);
+        .subscribe(forms => this.forms = forms);
   };
 
   title = 'eSign 3.0';
+  formsLength = this.forms.length;
 }
