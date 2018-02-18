@@ -13,7 +13,7 @@ namespace wizard_b3.API.Controllers
     {
         [HttpGet]
         [Route("~/api/wizard/getAllForms")]
-        public object GetAllForms()
+        public List<FormModel> GetAllForms()
         {
             var formSet = FormStorage.Instance.GetFormSet("", "AK");
 
