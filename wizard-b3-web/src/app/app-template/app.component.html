@@ -12,12 +12,4 @@
 </div> 
 <h1 style="text-align:center; color:red">HYI</h1>
 
-<ul>
- <li *ngFor="let form of forms">
- 	<ul>
- 		<li *ngFor="let ctrl of form.controls">
- 			<!--<div ctrl-factory dynamicComp="{{ctrl.type}}"></div> 			 			!-->
- 		</li>
- 	</ul>
- </li>
-</ul>
+<dynamic-ctrl></dynamic-ctrl>

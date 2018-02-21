@@ -8,19 +8,25 @@ import { StringComponent } from './ctrl-templates/string/string.component';
 import { SwitchboxComponent } from './ctrl-templates/switchbox/switchbox.component';
 
 import { WizardService } from './app-services/wizard.service';
-import { ControlFactoryDirective } from './app-directive/control-factory.directive';
+import { CtrlDirective } from './app-directive/control-factory.directive';
+import { DynamicCtrlComponent } from './dynamic/dynamic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CtrlDirective,
   	StringComponent,
     SwitchboxComponent,
-    ControlFactoryDirective
+    DynamicCtrlComponent    
   ],
   imports: [
   	BrowserModule,
     FormsModule,
     HttpClientModule
+  ],
+  entryComponents: [ 
+     StringComponent,
+     SwitchboxComponent
   ],
   providers: [WizardService],
   bootstrap: [AppComponent]
