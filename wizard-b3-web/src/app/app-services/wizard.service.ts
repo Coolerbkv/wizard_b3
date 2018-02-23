@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { catchError, map, tap } from 'rxjs/operators';
@@ -7,6 +7,8 @@ import { of } from 'rxjs/observable/of';
 
 import { Form } from '../app-data/form';
 import { Ctrl } from '../app-data/ctrl';
+import { CtrlInterface } from '../app-data/ctrl-interface';
+import { CtrlItem } from '../app-data/ctrl-item';
 
 const httpOptions = {
   	headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -17,8 +19,18 @@ const httpOptions = {
 export class WizardService {
 	private formsUrl = 'http://localhost/wizard_b3/api/wizard/getAllForms';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, 
+  						private componentFactoryResolver: ComponentFactoryResolver) { }
 	
+	loadComponent(viewContainerRef: ViewContainerRef, ctrlItem: CtrlItem) {
+		let componentFactory = this.componentFactoryResolver
+		                      .resolveComponentFactory(ctrlItem.component);
+		viewContainerRef.clear();
+		let componentRef = viewContainerRef.createComponent(componentFactory);
+		let ctrlInterface: CtrlInterface = <CtrlInterface>componentRef.instance;
+		ctrlInterface.ctrl = ctrlItem.data;
+	}
+
   getForms(): Observable<Form[]> {
     return this.http.get<Form[]>(this.formsUrl)
     					 .pipe(tap(forms=> this.log('fetched forms')), catchError(this.handleError('getForms', []))
