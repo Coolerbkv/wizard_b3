@@ -1,8 +1,12 @@
-import { ControlFactoryDirective } from './control-factory.directive';
+import { CtrlDirective } from './control-factory.directive';
+import { ViewContainerRef } from '@angular/core';
+import { WizardService } from '../app-services/wizard.service';
 
-describe('ControlFactoryDirective', () => {
+describe('CtrlDirective', () => {
   it('should create an instance', () => {
-    const directive = new ControlFactoryDirective();
+    let viewContainerRef: ViewContainerRef
+    let wizardService: WizardService;
+    const directive = new CtrlDirective(viewContainerRef, wizardService);
     expect(directive).toBeTruthy();
   });
 });

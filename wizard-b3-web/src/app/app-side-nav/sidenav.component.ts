@@ -1,7 +1,8 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { DynamicCtrlComponent } from "../dynamic/dynamic.component";
+import { DynamicCtrlComponent } from "../ctrl-dynamic/dynamic.component";
 
+//import { CtrlDirective } from '../app-directive/control-factory.directive';
 import { WizardService } from '../app-services/wizard.service';
 import { StringComponent } from '../ctrl-templates/string/string.component';
 import { CtrlItem } from '../app-data/ctrl-item';
@@ -17,7 +18,8 @@ export class SidenavComponent {
   mobileQuery: MediaQueryList;
   forms: Form[];
   ctrlItems: CtrlItem[];
-  
+  ctrls: Ctrl[];
+
   private _mobileQueryListener: () => void;
 
   // @ViewChild(CtrlDirective)
@@ -34,14 +36,17 @@ export class SidenavComponent {
     this.wizardService.getForms()
         .subscribe(forms => {
           this.forms = forms;
-          this.renderCtrls();
+          this.ctrls = forms[0].controls;
+          //this.renderCtrls();
         })   
 	};
 
 	renderCtrls(): void {
     let ctrlItem = new CtrlItem(StringComponent, this.forms[0].controls[0]);
     
-		this.wizardService.loadComponent(this.dynamicCtrlComponent.viewContainerRef, ctrlItem);
+    this.wizardService.loadComponent(this.dynamicCtrlComponent.viewContainerRef, ctrlItem);
+    
+    this.wizardService.loadComponent(this.dynamicCtrlComponent.viewContainerRef, new CtrlItem(StringComponent, this.forms[0].controls[1]));
 	}
 
   constructor(private wizardService: WizardService,
