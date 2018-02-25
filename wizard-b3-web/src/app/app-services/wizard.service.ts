@@ -17,6 +17,7 @@ const httpOptions = {
 @Injectable()
 
 export class WizardService {
+  localForms: Form[];
 	private formsUrl = 'http://localhost/wizard_b3/api/wizard/getAllForms';
 	//private formsUrl = 'http://192.168.100.200/wizard_b3/api/wizard/getAllForms';
   constructor(private http: HttpClient, 
@@ -31,7 +32,7 @@ export class WizardService {
 		let ctrlInterface: CtrlInterface = <CtrlInterface>componentRef.instance;
     
     ctrlInterface.ctrl = ctrlItem.data;
-	}
+  } 
 
   getForms(): Observable<Form[]> {
     return this.http.get<Form[]>(this.formsUrl)

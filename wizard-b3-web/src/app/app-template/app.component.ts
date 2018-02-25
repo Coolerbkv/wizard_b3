@@ -9,8 +9,7 @@ import { WizardService } from '../app-services/wizard.service';
 })
 
 export class AppComponent {
-  forms: Form[];
-
+  isLoadForms = false;
 	constructor(private wizardService: WizardService) { }
 
   ngOnInit() {
@@ -19,7 +18,10 @@ export class AppComponent {
 
   getForms(): void { 
     this.wizardService.getForms()
-        .subscribe(forms => this.forms = forms
+        .subscribe(forms => {
+          this.wizardService.localForms = forms
+          this.isLoadForms = true;
+          }
         )   
 	};
 }

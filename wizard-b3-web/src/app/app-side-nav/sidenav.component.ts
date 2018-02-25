@@ -14,7 +14,7 @@ import { Ctrl } from '../app-data/ctrl';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent {
-  @Input() forms: Form[];
+  forms = this.wizardService.localForms;
 
   mobileQuery: MediaQueryList;
   ctrlItems: CtrlItem[];
