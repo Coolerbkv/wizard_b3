@@ -105,6 +105,6 @@ import { SidenavComponent } from './app-side-nav/sidenav.component';
      SidenavComponent
   ],
   providers: [WizardService],
-  bootstrap: [AppComponent, SidenavComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

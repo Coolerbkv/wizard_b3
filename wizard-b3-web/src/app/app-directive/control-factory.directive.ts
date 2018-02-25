@@ -17,9 +17,9 @@ export class CtrlDirective implements OnInit {
     private ctrlDirective: CtrlDirective;
 
     constructor(public viewContainerRef: ViewContainerRef,
-               private wizardService: WizardService,) { }
+               private wizardService: WizardService) { }
    
-    ngOnInit(){
+    ngOnInit() {
         let ctrlItem = new CtrlItem(StringComponent, this.ctrl);
         
         this.wizardService.loadComponent(this.viewContainerRef, ctrlItem);

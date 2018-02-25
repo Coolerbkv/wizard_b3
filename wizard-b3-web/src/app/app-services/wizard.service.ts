@@ -25,10 +25,12 @@ export class WizardService {
 	loadComponent(viewContainerRef: ViewContainerRef, ctrlItem: CtrlItem) {
 		let componentFactory = this.componentFactoryResolver
 		                      .resolveComponentFactory(ctrlItem.component);
-		viewContainerRef.clear();
+    viewContainerRef.clear();
+    
 		let componentRef = viewContainerRef.createComponent(componentFactory);
 		let ctrlInterface: CtrlInterface = <CtrlInterface>componentRef.instance;
-		ctrlInterface.ctrl = ctrlItem.data;
+    
+    ctrlInterface.ctrl = ctrlItem.data;
 	}
 
   getForms(): Observable<Form[]> {

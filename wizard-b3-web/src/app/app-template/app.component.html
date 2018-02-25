@@ -3,9 +3,9 @@
 
 	</div>
 </div> -->
-
-<sidenav-responsive></sidenav-responsive>
-
+<div *ngIf="forms">
+  <sidenav-responsive [(forms)]="forms" ></sidenav-responsive>
+</div>  
 <!-- <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
