@@ -11,7 +11,7 @@ import { SwitchboxComponent } from './ctrl-templates/switchbox/switchbox.compone
 
 import { WizardService } from './app-services/wizard.service';
 import { CtrlDirective } from './app-directive/control-factory.directive';
-import { DynamicCtrlComponent } from './ctrl-dynamic/dynamic.component';
+//import { DynamicCtrlComponent } from './ctrl-dynamic/dynamic.component';
 
 import {
   MatAutocompleteModule,
@@ -57,7 +57,7 @@ import { SidenavComponent } from './app-side-nav/sidenav.component';
     CtrlDirective,
   	StringComponent,
     SwitchboxComponent,
-    DynamicCtrlComponent,
+    //DynamicCtrlComponent,
     SidenavComponent
   ],
   imports: [

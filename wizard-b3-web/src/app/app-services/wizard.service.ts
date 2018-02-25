@@ -18,7 +18,7 @@ const httpOptions = {
 
 export class WizardService {
 	private formsUrl = 'http://localhost/wizard_b3/api/wizard/getAllForms';
-
+	//private formsUrl = 'http://192.168.100.200/wizard_b3/api/wizard/getAllForms';
   constructor(private http: HttpClient, 
   						private componentFactoryResolver: ComponentFactoryResolver) { }
 	

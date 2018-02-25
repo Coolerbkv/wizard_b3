@@ -32,5 +32,8 @@ h1.side-nav-app-name {
 
 .mat-toolbar-esign {
 	background-color: #004280;
-    color: #fff;
-  }
+  color: #fff;
+}
+.select-form {
+  background: #e2dfdf;
+}
