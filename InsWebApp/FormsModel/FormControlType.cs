@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace InsWebApp.FormsModel
 {
+    [Flags]
     public enum FormControlType
     {
         Unknown = 0,
        
         String = 1,
         Checkbox = 2,
-        Selectable = 3,
-        Date = 4,
-        Time = 5,
+        Selectable = 4,
+        Date = 8,
+        Time = 16,
 
-        SpaceLine = 6,
-        BrLine = 7,
-        Subtitle = 8 
+        SpaceLine = 32,
+        BrLine = 64,
+        Subtitle = 128 
     }
 }

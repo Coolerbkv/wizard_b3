@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace InsWebApp.FormsModel
 {
     public sealed class FormControl
     {
-        [JsonConverter(typeof(StringEnumConverter))]
-        public FormControlType Type;
-        public string Id;
-        public string Question;
-        public bool Required;
+        public FormControlType Type { get; private set; }
+        public string Id { get; private set; }
+        public string Question { get; private set; }
+        public bool Required { get; private set; }
 
+        public FormControlSelectableType SelectableType { get; private set; }
 
-        internal FormControl(FormControlType type, string id, string q, bool req)
+        public Type SelectableSection { get; private set; }
+
+        internal FormControl(FormControlType type, string id, FormControlSelectableType selectableType,
+            Type selectableSection, string q, bool req)
         {
+            SelectableType = selectableType;
+            SelectableSection = selectableSection;
             Type = type;
             Id = id;
             Question = q;
