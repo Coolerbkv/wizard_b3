@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InsWebApp.FormsModel.Sections;
 
 namespace InsWebApp.FormsModel
 {
@@ -30,9 +31,31 @@ namespace InsWebApp.FormsModel
             Step = step;
         }
 
-        public void AddControl(FormControlType type, string id, string q = "", bool req = false)
+        public FormControl AddStringControl(string id, string q = "", bool req = false)
         {
-            _controls.Add(id, new FormControl(type, id, q, req));
+            return AddControlInternal(FormControlType.String, id, q, req);
+        }
+
+        public FormControl AddBooleanControl(string id, string q = "", bool req = false)
+        {
+            return AddSelectableControl(id, FormControlSelectableType.Boolean, typeof(BooleanSelectableType), q, req);
+        }
+
+        public FormControl AddSelectableControl(string id, FormControlSelectableType selectableType, Type enumType, string q = "", bool req = false)
+        {
+            return AddControlInternal(FormControlType.Selectable, id, q, req, selectableType, enumType);
+        }
+
+        public FormControl AddCheckboxControl(string id, string q = "", bool req = false)
+        {
+            return AddControlInternal(FormControlType.Checkbox, id, q, req);
+        }
+
+        private FormControl AddControlInternal(FormControlType type, string id, string q = "", bool req = false, FormControlSelectableType selectableType = FormControlSelectableType.Unknown, Type selectableSection = null)
+        {
+            var fc = new FormControl(type, id, selectableType, selectableSection, q, req);
+            _controls.Add(id, fc);
+            return fc;
         }
     }
 }
