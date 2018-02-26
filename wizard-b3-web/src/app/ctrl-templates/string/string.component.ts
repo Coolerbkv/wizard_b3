@@ -2,7 +2,7 @@ import { Component, OnInit, ViewContainerRef, Input } from '@angular/core';
 import { CtrlInterface } from '../../app-data/ctrl-interface';
 
 @Component({
-  selector: 'ctrl-String',
+  selector: 'ctrl-string',
   templateUrl: './string.component.html',
   styleUrls: ['./string.component.css']
 })

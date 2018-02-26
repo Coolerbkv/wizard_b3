@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+// import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
-@Component({
-  selector: 'dynamic-ctrl',
-  template: ''
-})
-export class DynamicCtrlComponent implements OnInit {
-   constructor(public viewContainerRef: ViewContainerRef) { }
+// @Component({
+//   selector: 'dynamic-ctrl',
+//   template: ''
+// })
+// export class DynamicCtrlComponent implements OnInit {
+//    constructor(public viewContainerRef: ViewContainerRef) { }
 
-   ngOnInit() {
+//    ngOnInit() {
 
-  }
-} 
+//   }
+// } 

@@ -1,8 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { DynamicCtrlComponent } from "../ctrl-dynamic/dynamic.component";
+import { ChangeDetectorRef, Component, ViewChild, AfterViewInit, OnDestroy, Input } from '@angular/core';
+//import { DynamicCtrlComponent } from "../ctrl-dynamic/dynamic.component";
 
-//import { CtrlDirective } from '../app-directive/control-factory.directive';
 import { WizardService } from '../app-services/wizard.service';
 import { StringComponent } from '../ctrl-templates/string/string.component';
 import { CtrlItem } from '../app-data/ctrl-item';
@@ -15,39 +14,25 @@ import { Ctrl } from '../app-data/ctrl';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent {
+  forms = this.wizardService.localForms;
+
   mobileQuery: MediaQueryList;
-  forms: Form[];
   ctrlItems: CtrlItem[];
-  ctrls: Ctrl[];
+  selectForm: Form;
 
   private _mobileQueryListener: () => void;
 
-  // @ViewChild(CtrlDirective)
-  // private ctrlDirective: CtrlDirective;
-
-  @ViewChild(DynamicCtrlComponent)
-  private dynamicCtrlComponent: DynamicCtrlComponent;
+  // @ViewChild(DynamicCtrlComponent)
+  // private dynamicCtrlComponent: DynamicCtrlComponent;
 
   ngOnInit() {
-    this.getForms();
-  }; 
+    this.selectForm = this.forms[0];
+  };
 
-  getForms(): void { 
-    this.wizardService.getForms()
-        .subscribe(forms => {
-          this.forms = forms;
-          this.ctrls = forms[0].controls;
-          //this.renderCtrls();
-        })   
-	};
-
-	renderCtrls(): void {
-    let ctrlItem = new CtrlItem(StringComponent, this.forms[0].controls[0]);
-    
-    this.wizardService.loadComponent(this.dynamicCtrlComponent.viewContainerRef, ctrlItem);
-    
-    this.wizardService.loadComponent(this.dynamicCtrlComponent.viewContainerRef, new CtrlItem(StringComponent, this.forms[0].controls[1]));
-	}
+  onSelect(form: Form, snav: any): void {
+    this.selectForm = form;
+    snav.toggle();
+  }
 
   constructor(private wizardService: WizardService,
               changeDetectorRef: ChangeDetectorRef, 

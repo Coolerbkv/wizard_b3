@@ -1,16 +1,6 @@
-import { Component, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-
-// import { Form } from '../app-data/form';
-// import { Ctrl } from '../app-data/ctrl';
-// import { NgIf } from '@angular/common';
-
-// import { CtrlDirective } from '../app-directive/control-factory.directive';
-// import { DynamicCtrlComponent } from "../dynamic/dynamic.component";
-
-// import { WizardService } from '../app-services/wizard.service';
-// import { StringComponent } from '../ctrl-templates/string/string.component';
-// import { CtrlItem } from '../app-data/ctrl-item';
-
+import { Component } from '@angular/core';
+import { Form } from '../app-data/form';
+import { WizardService } from '../app-services/wizard.service';
 
 @Component({
   selector: 'app-root',
@@ -19,34 +9,19 @@ import { Component, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 })
 
 export class AppComponent {
-	// forms: Form[];
-	// ctrlItems: CtrlItem[];
+  isLoadForms = false;
+	constructor(private wizardService: WizardService) { }
 
-  // @ViewChild(CtrlDirective)
-  // private ctrlDirective: CtrlDirective;
+  ngOnInit() {
+    this.getForms();
+  }; 
 
-  // @ViewChild(DynamicCtrlComponent)
-  // private dynamicCtrlComponent: DynamicCtrlComponent;
-
-	// constructor(private wizardService: WizardService) { }
-
-  // ngOnInit() {
-  //   this.getForms();
-  // }; 
-
-  // getForms(): void { 
-  //   this.wizardService.getForms()
-  //       .subscribe(forms => {
-  //         this.forms = [forms[0]];
-  //         this.renderCtrls();
-  //       })   
-	// };
-
-	// renderCtrls(): void {
-  //   let ctrlItem = new CtrlItem(StringComponent, this.forms[0].controls[0]);
-    
-	// 	this.wizardService.loadComponent(this.dynamicCtrlComponent.viewContainerRef, ctrlItem);
-	// }
-
-	title = 'eSign 3.0';
+  getForms(): void { 
+    this.wizardService.getForms()
+        .subscribe(forms => {
+          this.wizardService.localForms = forms
+          this.isLoadForms = true;
+          }
+        )   
+	};
 }

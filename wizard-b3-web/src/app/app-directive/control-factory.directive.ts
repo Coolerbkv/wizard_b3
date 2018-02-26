@@ -7,20 +7,20 @@ import { Form } from '../app-data/form';
 import { Ctrl } from '../app-data/ctrl';
 
 @Directive({ 
-   selector: '[ctrl]' 
+   selector: '[control]' 
 })
 
 export class CtrlDirective implements OnInit {
-    @Input() ctrl: any;  
+    @Input() controlInfo: any;  
     @ViewChild(CtrlDirective)
 
     private ctrlDirective: CtrlDirective;
 
     constructor(public viewContainerRef: ViewContainerRef,
-               private wizardService: WizardService,) { }
+               private wizardService: WizardService) { }
    
-    ngOnInit(){
-        let ctrlItem = new CtrlItem(StringComponent, this.ctrl);
+    ngOnInit() {
+        let ctrlItem = new CtrlItem(StringComponent, this.controlInfo);
         
         this.wizardService.loadComponent(this.viewContainerRef, ctrlItem);
    }
